@@ -4,16 +4,17 @@ import { site } from "@/lib/site";
 type Size = "sm" | "md" | "lg";
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-11 px-6 text-sm",
-  lg: "h-13 px-8 text-base",
+  sm: "h-9 px-4 text-[11px]",
+  md: "h-11 px-6 text-[12px]",
+  lg: "h-12 px-8 text-[13px]",
 };
 
 const variants = {
-  primary:
-    "bg-gradient-to-r from-rose to-rosy text-white hover:brightness-105",
-  /** For sitting on dark/gradient backgrounds */
-  light: "bg-paper text-plum hover:bg-sakura",
+  primary: "bg-rose text-ink hover:bg-rosedeep hover:text-mist",
+  /** Outlined, for secondary positions */
+  ghost: "border border-line text-mist hover:border-rose hover:text-rose",
+  /** For sitting on rose/gradient backgrounds */
+  light: "bg-ink text-mist hover:bg-panel-2",
 };
 
 /**
@@ -43,10 +44,10 @@ export default function OrderButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-extrabold shadow-sm transition active:scale-[0.98] ${sizes[size]} ${variants[variant]} ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-[0.14em] transition active:scale-[0.98] ${sizes[size]} ${variants[variant]} ${className}`}
     >
-      <span aria-hidden>📩</span>
-      {children ?? "Order via Instagram"}
+      <span aria-hidden>✦</span>
+      {children ?? "Order on Instagram"}
     </a>
   );
 }

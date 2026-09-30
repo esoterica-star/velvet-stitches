@@ -34,13 +34,15 @@ export default async function ShopPage({
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <p className="font-hand text-2xl text-rosy">✧ the shop ✧</p>
-          <h1 className="text-4xl font-black text-plum">
+          <p className="text-[11px] font-medium uppercase tracking-[0.4em] text-fog">
+            かぎ針編み · the shop
+          </p>
+          <h1 className="mt-2 font-serif text-4xl font-semibold text-mist sm:text-5xl">
             Pick your next companion
           </h1>
-          <p className="mt-2 max-w-lg text-ink/70">
-            Every pal is made by hand. Ready-to-ship items leave within days;
-            made-to-order pieces are stitched fresh just for you.
+          <p className="mt-3 max-w-lg text-fog">
+            Every pal is made by hand. Ready-to-ship pieces leave within days;
+            made-to-order ones are stitched fresh just for you.
           </p>
         </div>
         <OrderButton />
@@ -55,10 +57,10 @@ export default async function ShopPage({
             <Link
               key={f.key}
               href={href}
-              className={`rounded-full px-5 py-2 text-sm font-extrabold transition ${
+              className={`rounded-full px-5 py-2 text-[12px] font-medium uppercase tracking-[0.14em] transition ${
                 isActive
-                  ? "bg-plum text-white shadow-sm"
-                  : "bg-paper text-ink/70 hover:bg-sakura/60 hover:text-plum"
+                  ? "bg-rose text-ink"
+                  : "border border-line bg-panel text-fog hover:border-rose/60 hover:text-mist"
               }`}
             >
               {f.label}
@@ -74,8 +76,8 @@ export default async function ShopPage({
       </div>
 
       {visible.length === 0 && (
-        <p className="mt-16 text-center text-ink/60">
-          Nothing here yet — check back soon! ♡
+        <p className="mt-16 text-center text-fog">
+          Nothing here yet — check back soon.
         </p>
       )}
     </div>

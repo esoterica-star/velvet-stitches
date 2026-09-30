@@ -39,26 +39,26 @@ export default async function ProductPage({
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       {/* Breadcrumb */}
-      <nav className="text-sm font-semibold text-ink/55">
-        <Link href="/shop" className="hover:text-rosy">
+      <nav className="text-[11px] font-medium uppercase tracking-[0.2em] text-fog">
+        <Link href="/shop" className="transition hover:text-rose">
           Shop
         </Link>
-        <span className="mx-2">/</span>
+        <span className="mx-2.5 text-line">/</span>
         <Link
           href={`/shop?category=${product.category}`}
-          className="hover:text-rosy"
+          className="transition hover:text-rose"
         >
           {categoryLabels[product.category]}
         </Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink/80">{product.name}</span>
+        <span className="mx-2.5 text-line">/</span>
+        <span className="text-mist/80">{product.name}</span>
       </nav>
 
-      <div className="mt-6 grid gap-10 md:grid-cols-2">
+      <div className="mt-8 grid gap-10 md:grid-cols-2">
         {/* Photo */}
         <div className="relative">
-          <div className="absolute -left-4 -top-4 h-20 w-20 rotate-12 rounded-3xl bg-butter/50" />
-          <div className="relative overflow-hidden rounded-[2rem] border-4 border-paper bg-sakura/40 shadow-lg">
+          <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-rose/20 via-transparent to-wine/40 blur-sm" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-panel-2 shadow-2xl">
             <Image
               src={product.image}
               alt={product.imageAlt}
@@ -72,81 +72,81 @@ export default async function ProductPage({
 
         {/* Info */}
         <div className="flex flex-col">
-          <p className="font-hand text-2xl text-rosy">
-            ✧ {categoryLabels[product.category]} ✧
+          <p className="text-[11px] font-medium uppercase tracking-[0.4em] text-rose">
+            {categoryLabels[product.category]}
           </p>
-          <h1 className="mt-1 text-4xl font-black leading-tight text-plum">
+          <h1 className="mt-2 font-serif text-4xl font-semibold leading-tight text-mist sm:text-5xl">
             {product.name}
           </h1>
-          <p className="mt-3 text-lg text-ink/75">{product.blurb}</p>
+          <p className="mt-3 text-lg text-fog">{product.blurb}</p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <span className="text-3xl font-black text-plum">
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <span className="font-serif text-4xl font-semibold text-rose">
               {formatPrice(product)}
             </span>
             <span
-              className={`rounded-full px-3.5 py-1.5 text-xs font-extrabold ${
+              className={`rounded-full px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${
                 product.status === "sold"
-                  ? "bg-ink/15 text-ink/60"
+                  ? "border border-line bg-panel-2 text-fog"
                   : product.status === "available"
-                    ? "bg-sage/40 text-ink"
-                    : "bg-butter/50 text-ink"
+                    ? "bg-blush text-ink"
+                    : "bg-rose text-ink"
               }`}
             >
               {statusLabels[product.status]}
             </span>
           </div>
 
-          <ul className="mt-6 space-y-2.5 rounded-3xl bg-paper p-6 text-sm text-ink/80 shadow-sm">
+          <ul className="mt-7 space-y-3 rounded-2xl border border-line bg-panel p-6 text-sm text-mist/85">
             {product.details.map((detail) => (
-              <li key={detail} className="flex gap-2.5">
-                <span aria-hidden className="text-rosy">
-                  ✿
+              <li key={detail} className="flex gap-3">
+                <span aria-hidden className="text-rose">
+                  ✦
                 </span>
                 {detail}
               </li>
             ))}
           </ul>
 
-          <p className="mt-4 text-sm font-semibold text-ink/60">
+          <p className="mt-4 text-sm text-fog">
             ⏱ {product.leadTime}
           </p>
 
-          <div className="mt-6">
+          <div className="mt-7">
             {product.status === "sold" ? (
               <OrderButton
                 size="lg"
-                className="opacity-90"
-                message={`Hi ${site.name}! I missed out on the ${product.name} 😢 Is it coming back, or could I request something similar?`}
+                variant="ghost"
+                message={`Hi ${site.name}! I missed out on the ${product.name} — is it coming back, or could I request something similar?`}
               >
                 Ask about this one
               </OrderButton>
             ) : (
               <OrderButton
                 size="lg"
-                message={`Hi ${site.name}! I'd love to order the ${product.name} ✨`}
+                message={`Hi ${site.name}! I'd love to order the ${product.name} ✦`}
               >
-                Order this pal on IG
+                Order on Instagram
               </OrderButton>
             )}
           </div>
-          <p className="mt-3 text-xs text-ink/50">
+          <p className="mt-3 text-xs text-fog/80">
             Opens a DM to @{site.instagramHandle} with a pre-filled message —
-            we’ll confirm details, payment & shipping there.
+            we’ll confirm details, payment & delivery there.
           </p>
         </div>
       </div>
 
       {/* Full description */}
-      <section className="mt-12 max-w-2xl">
-        <h2 className="text-2xl font-black text-plum">The story</h2>
-        <p className="mt-3 leading-relaxed text-ink/75">{product.description}</p>
+      <section className="mt-14 max-w-2xl">
+        <h2 className="font-serif text-2xl font-semibold text-mist">The story</h2>
+        <p className="mt-3 leading-relaxed text-fog">{product.description}</p>
       </section>
 
       {/* Related */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-black text-plum">
-          You might also love ♡
+      <section className="mt-18">
+        <h2 className="font-serif text-2xl font-semibold text-mist">
+          You might also like
         </h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((p) => (

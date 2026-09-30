@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
-import { Caveat, Nunito } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import IntroLoader from "@/components/IntroLoader";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const caveat = Caveat({
-  variable: "--font-caveat",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} · Handmade Crochet Keychains & Plushies`,
+    default: `${site.name} · Handmade Crochet in Jeddah`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -27,9 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${caveat.variable} h-full antialiased`}
+      className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">
+      <body className="flex min-h-full flex-col bg-ink font-sans text-mist">
+        <IntroLoader />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

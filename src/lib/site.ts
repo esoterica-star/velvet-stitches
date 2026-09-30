@@ -6,20 +6,24 @@
  */
 export const site = {
   /** Business name shown in the header, footer, and page titles */
-  name: "Hook & Hime",
+  name: "Velvet Stitch",
 
-  /** Short line used under the logo and in meta descriptions */
-  tagline: "Handmade crochet keychains & plushies",
+  /** From her Instagram bio */
+  tagline: "Handmade creations that reflect your personality",
 
   /** Used for SEO / social link previews */
   description:
-    "Handmade crochet keychains and plushies with anime energy. Every piece stitched with love, made to order, and ready to become your new favorite buddy.",
+    "Velvet Stitch — handmade crochet keychains & plushies in Jeddah, KSA. Creations that reflect your personality, stitched with love and made to order.",
+
+  /** Based in Jeddah, Saudi Arabia — local delivery 5–20 SAR */
+  city: "Jeddah, KSA",
+  deliveryNote: "Delivery within Jeddah · 5–20 SAR by area",
 
   /**
    * Instagram handle WITHOUT the @. Customers order through Instagram DM,
    * so this is the most important line in the file.
    */
-  instagramHandle: "yourshopname",
+  instagramHandle: "velvet_stitch_store",
   get instagramUrl() {
     return `https://instagram.com/${this.instagramHandle}`;
   },
@@ -28,11 +32,17 @@ export const site = {
     return `https://ig.me/m/${this.instagramHandle}`;
   },
 
-  /** Contact email — used by the custom order form */
-  email: "hello@yourshop.com",
+  /** TikTok handle WITHOUT the @ */
+  tiktokHandle: "velvetstitch.store",
+  get tiktokUrl() {
+    return `https://www.tiktok.com/@${this.tiktokHandle}`;
+  },
 
-  /** Currency code for prices (USD, EUR, PHP, JPY, …) */
-  currency: "USD",
+  /** Contact email — used by the custom order form */
+  email: "hello@velvetstitch.store",
+
+  /** Currency code for prices (SAR, USD, EUR, …) */
+  currency: "SAR",
 } as const;
 
 export type Site = typeof site;

@@ -1,29 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — cozy cream base with sakura/plum accents */
-  --color-cream: #faf5ee;
-  --color-paper: #fffdf9;
-  --color-ink: #40304a;
-  --color-plum: #6b4e71;
-  --color-rose: #e87fa8;
-  --color-rosy: #d96a94;
-  --color-sakura: #f7d6e4;
-  --color-sage: #a8c6b5;
-  --color-butter: #f4d06f;
+  /* Velvet Stitch — dark, elegant, anime-refined.
+     Deep plum-black base, champagne-silver serif, rose accents. */
+  --color-ink: #131019; /* page background */
+  --color-panel: #1c1626; /* cards */
+  --color-panel-2: #241c31; /* raised / hover */
+  --color-line: #352a47; /* borders */
+  --color-mist: #f1ecf8; /* primary text */
+  --color-fog: #a89dba; /* muted text */
+  --color-rose: #e39cb8; /* accent */
+  --color-rosedeep: #c9749a; /* accent hover */
+  --color-silver: #d9d2e6; /* champagne silver */
+  --color-blush: #f4d9e5; /* pale pink */
+  --color-wine: #4a2e44; /* deep rose band */
 
-  --font-sans: var(--font-nunito), ui-rounded, system-ui, sans-serif;
-  --font-hand: var(--font-caveat), cursive;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-mist);
 }
 
 ::selection {
-  background: var(--color-sakura);
-  color: var(--color-plum);
+  background: var(--color-rose);
+  color: var(--color-ink);
 }
 
 /* FAQ accordions: hide the default triangle */
@@ -33,4 +36,92 @@ summary::-webkit-details-marker {
 summary {
   list-style: none;
   cursor: pointer;
+}
+
+/* ── Intro loader: the hook "stitches" the brand in ───────── */
+@keyframes vs-hook-work {
+  0% {
+    transform: rotate(-8deg);
+  }
+  15% {
+    transform: rotate(28deg) translateY(5px);
+  }
+  35% {
+    transform: rotate(-22deg) translateY(2px);
+  }
+  55% {
+    transform: rotate(16deg) translateY(-1px);
+  }
+  75% {
+    transform: rotate(-10deg) translateY(3px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@keyframes vs-yarn-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes vs-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes vs-sparkle-pop {
+  0%,
+  60% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-40deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.2) rotate(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.vs-hook {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: vs-hook-work 1.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) both;
+}
+.vs-yarn {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: vs-yarn-draw 1.4s 0.2s ease-in-out both;
+}
+.vs-wordmark {
+  animation: vs-fade-up 0.55s 1.05s ease-out both;
+}
+.vs-sub {
+  animation: vs-fade-up 0.55s 1.25s ease-out both;
+}
+.vs-sparkle {
+  animation: vs-sparkle-pop 0.5s 1.45s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-hook,
+  .vs-yarn,
+  .vs-wordmark,
+  .vs-sub,
+  .vs-sparkle {
+    animation: none !important;
+  }
 }
