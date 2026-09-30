@@ -6,30 +6,35 @@ import { site } from "@/lib/site";
 /**
  * Movie-studio intro: a crochet hook works a stitch, the yarn draws
  * itself in, the wordmark appears — then the whole overlay fades away.
- * Plays once per browser session; skipped for reduced-motion users.
+ *
+ * The overlay is server-rendered (so the page can never flash before
+ * it) and a tiny pre-paint script in the layout hides it instantly for
+ * repeat visits and reduced-motion users. Plays once per session.
  */
 export default function IntroLoader() {
-  const [phase, setPhase] = useState<"hidden" | "playing" | "fading">("hidden");
+  const [phase, setPhase] = useState<"playing" | "fading" | "hidden">("playing");
 
   useEffect(() => {
-    const seen = sessionStorage.getItem("vs-intro");
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (seen || reduced) return;
+    const root = document.documentElement;
 
-    document.documentElement.style.overflow = "hidden";
-    setPhase("playing");
+    // Pre-paint script marked the intro as done (repeat visit /
+    // reduced motion) — the overlay is already display:none via CSS.
+    if (root.hasAttribute("data-vs-intro-off")) {
+      setPhase("hidden");
+      return;
+    }
 
     const fadeTimer = setTimeout(() => setPhase("fading"), 2200);
     const doneTimer = setTimeout(() => {
       setPhase("hidden");
       sessionStorage.setItem("vs-intro", "1");
-      document.documentElement.style.overflow = "";
+      root.style.overflow = "";
     }, 2950);
 
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(doneTimer);
-      document.documentElement.style.overflow = "";
+      root.style.overflow = "";
     };
   }, []);
 
@@ -37,6 +42,7 @@ export default function IntroLoader() {
 
   return (
     <div
+      data-vs-intro
       aria-hidden
       className={`fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-ink transition-opacity duration-700 ease-out ${
         phase === "fading" ? "pointer-events-none opacity-0" : "opacity-100"

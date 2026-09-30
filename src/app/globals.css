@@ -161,3 +161,23 @@ summary {
     animation: none !important;
   }
 }
+
+/* ── Intro overlay: flash-proofing ────────────────────────── */
+
+/* Repeat visits / reduced motion: hidden before the very first
+   paint — the pre-paint script sets this attribute. */
+html[data-vs-intro-off] [data-vs-intro] {
+  display: none;
+}
+
+/* Safety net: if scripts never load, the intro fades itself out */
+@keyframes vs-intro-autohide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+[data-vs-intro] {
+  animation: vs-intro-autohide 0.7s 3.1s ease forwards;
+}

@@ -38,6 +38,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${cormorant.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ink font-sans text-mist">
+        {/* Pre-paint: skip the intro instantly for repeat visits &
+            reduced-motion users, so it can never flash over the page. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("vs-intro")||matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.setAttribute("data-vs-intro-off","")}}catch(e){}`,
+          }}
+        />
         <IntroLoader />
         <Header />
         <main className="flex-1">{children}</main>
