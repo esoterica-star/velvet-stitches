@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — cozy cream base with sakura/plum accents */
+  --color-cream: #faf5ee;
+  --color-paper: #fffdf9;
+  --color-ink: #40304a;
+  --color-plum: #6b4e71;
+  --color-rose: #e87fa8;
+  --color-rosy: #d96a94;
+  --color-sakura: #f7d6e4;
+  --color-sage: #a8c6b5;
+  --color-butter: #f4d06f;
+
+  --font-sans: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-sakura);
+  color: var(--color-plum);
+}
+
+/* FAQ accordions: hide the default triangle */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
+  cursor: pointer;
+}
