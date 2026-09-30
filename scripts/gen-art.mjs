@@ -21,14 +21,14 @@ const icons = {
 };
 
 const palettes = {
-  bunny:  { bg: "#fbe3ee", accent: "#f3b8d1", body: "#fdf8f4", line: "#c98aa8", extra: "#e87fa8" },
-  cow:    { bg: "#fdeae7", accent: "#f6c9c3", body: "#fdf6f0", line: "#d99a8f", extra: "#ef8f85" },
-  dragon: { bg: "#eee6f7", accent: "#d4c2ec", body: "#f6efff", line: "#a68cd1", extra: "#8f6fd0" },
-  frog:   { bg: "#e7f2e6", accent: "#c3e0c4", body: "#f2faf1", line: "#8dbb90", extra: "#6ba26f" },
-  cat:    { bg: "#eef1f8", accent: "#ccd6ec", body: "#f7f9ff", line: "#93a5cc", extra: "#6f86b8" },
-  axolotl:{ bg: "#fce8f0", accent: "#f4bfd4", body: "#fef5f9", line: "#d18aa9", extra: "#e87fa8" },
-  shiba:  { bg: "#fbeedd", accent: "#f3d3a5", body: "#fdf8ee", line: "#cf9d5f", extra: "#b97f3f" },
-  ghost:  { bg: "#eaf0f6", accent: "#cad9e8", body: "#f8fbfd", line: "#9fb8cf", extra: "#7d9ec0" },
+  bunny:  { bg: "#101013", accent: "#1f1f24", body: "#16161a", line: "#dcdce0", extra: "#a3a3ab" },
+  cow:    { bg: "#0e0e11", accent: "#1d1d22", body: "#15151a", line: "#d4d4da", extra: "#9a9aa4" },
+  dragon: { bg: "#111114", accent: "#202026", body: "#17171b", line: "#e0e0e4", extra: "#a6a6b0" },
+  frog:   { bg: "#0f0f12", accent: "#1e1e23", body: "#141419", line: "#d8d8de", extra: "#9e9ea8" },
+  cat:    { bg: "#101014", accent: "#1f1f25", body: "#16161b", line: "#dadadf", extra: "#a2a2ac" },
+  axolotl:{ bg: "#0e0e10", accent: "#1c1c21", body: "#141418", line: "#d2d2d8", extra: "#96969e" },
+  shiba:  { bg: "#111115", accent: "#212127", body: "#18181d", line: "#e2e2e6", extra: "#a8a8b2" },
+  ghost:  { bg: "#0f0f11", accent: "#1d1d22", body: "#15151a", line: "#d6d6dc", extra: "#9c9ca4" },
 };
 
 function svg(slug, icon) {

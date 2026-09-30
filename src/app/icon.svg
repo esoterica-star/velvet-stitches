@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="58" fill="#0b0b0d"/>
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#dcdce0" stroke-width="1.5"/>
+  <circle cx="60" cy="60" r="53" fill="none" stroke="#dcdce0" stroke-opacity="0.3" stroke-width="0.8"/>
+  <path d="M60 12 L62.6 21.4 L72 24 L62.6 26.6 L60 36 L57.4 26.6 L48 24 L57.4 21.4 Z" fill="#f4f4f2"/>
+  <path d="M78 15 L79 18.5 L82.5 19.5 L79 20.5 L78 24 L77 20.5 L73.5 19.5 L77 18.5 Z" fill="#90909a"/>
+  <text x="60" y="62" text-anchor="middle" fill="#f4f4f2" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="600" letter-spacing="4">VELVET</text>
+  <text x="60" y="86" text-anchor="middle" fill="#f4f4f2" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="600" letter-spacing="4">STITCH</text>
+  <line x1="34" y1="94.5" x2="86" y2="94.5" stroke="#dcdce0" stroke-opacity="0.45" stroke-width="0.8"/>
+  <text x="60" y="104" text-anchor="middle" fill="#a3a3ab" font-family="Georgia, serif" font-size="5.6" letter-spacing="2.6">HANDMADE · JEDDAH</text>
+</svg>

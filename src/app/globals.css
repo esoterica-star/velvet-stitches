@@ -1,22 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Velvet Stitch — dark, elegant, anime-refined.
-     Deep plum-black base, champagne-silver serif, rose accents. */
-  --color-ink: #131019; /* page background */
-  --color-panel: #1c1626; /* cards */
-  --color-panel-2: #241c31; /* raised / hover */
-  --color-line: #352a47; /* borders */
-  --color-mist: #f1ecf8; /* primary text */
-  --color-fog: #a89dba; /* muted text */
-  --color-rose: #e39cb8; /* accent */
-  --color-rosedeep: #c9749a; /* accent hover */
-  --color-silver: #d9d2e6; /* champagne silver */
-  --color-blush: #f4d9e5; /* pale pink */
-  --color-wine: #4a2e44; /* deep rose band */
+  /* Velvet Stitch — cybersigilism monochrome.
+     Pure black + silver, straight from the logo. No color. */
+  --color-ink: #0b0b0d; /* page background */
+  --color-panel: #131316; /* cards */
+  --color-panel-2: #1b1b1f; /* raised / hover */
+  --color-line: #2b2b31; /* borders */
+  --color-mist: #f4f4f2; /* primary text */
+  --color-fog: #a3a3ab; /* muted text */
+  --color-silver: #dcdce0; /* silver */
+  --color-accent: #eaeaee; /* accent (near-white) */
+  --color-accent-dim: #90909a; /* dim accent */
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 body {
@@ -25,7 +24,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-rose);
+  background: var(--color-accent);
   color: var(--color-ink);
 }
 
@@ -36,6 +35,27 @@ summary::-webkit-details-marker {
 summary {
   list-style: none;
   cursor: pointer;
+}
+
+/* ── Cybersigilism backdrops ──────────────────────────────── */
+
+/* faint technical grid */
+.vs-grid {
+  background-image:
+    linear-gradient(to right, rgb(220 220 224 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(220 220 224 / 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* CRT scanlines, extremely subtle */
+.vs-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.015) 0px,
+    rgb(255 255 255 / 0.015) 1px,
+    transparent 1px,
+    transparent 4px
+  );
 }
 
 /* ── Intro loader: the hook "stitches" the brand in ───────── */
@@ -96,6 +116,18 @@ summary {
   }
 }
 
+@keyframes vs-sigil-breathe {
+  0%,
+  100% {
+    opacity: 0.14;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.03);
+  }
+}
+
 .vs-hook {
   transform-box: fill-box;
   transform-origin: 50% 0%;
@@ -115,13 +147,17 @@ summary {
 .vs-sparkle {
   animation: vs-sparkle-pop 0.5s 1.45s ease-out both;
 }
+.vs-sigil-breathe {
+  animation: vs-sigil-breathe 7s ease-in-out infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .vs-hook,
   .vs-yarn,
   .vs-wordmark,
   .vs-sub,
-  .vs-sparkle {
+  .vs-sparkle,
+  .vs-sigil-breathe {
     animation: none !important;
   }
 }

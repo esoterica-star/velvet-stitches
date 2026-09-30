@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import IntroLoader from "@/components/IntroLoader";
@@ -17,6 +17,12 @@ const cormorant = Cormorant_Garamond({
   weight: ["500", "600", "700"],
 });
 
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${site.name} · Handmade Crochet in Jeddah`,
@@ -29,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${inter.variable} ${cormorant.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ink font-sans text-mist">
         <IntroLoader />

@@ -34,15 +34,11 @@ export default async function ShopPage({
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <p className="text-[11px] font-medium uppercase tracking-[0.4em] text-fog">
-            かぎ針編み · the shop
-          </p>
-          <h1 className="mt-2 font-serif text-4xl font-semibold text-mist sm:text-5xl">
-            Pick your next companion
+          <h1 className="font-serif text-4xl font-semibold uppercase tracking-[0.12em] text-mist sm:text-5xl">
+            All pieces
           </h1>
-          <p className="mt-3 max-w-lg text-fog">
-            Every pal is made by hand. Ready-to-ship pieces leave within days;
-            made-to-order ones are stitched fresh just for you.
+          <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.3em] text-fog">
+            Handmade crochet · Made to order · Jeddah
           </p>
         </div>
         <OrderButton />
